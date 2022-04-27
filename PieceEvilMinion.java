@@ -1,0 +1,48 @@
+public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter {
+    private boolean hungry;
+    private int numAttacks;
+    final public int MAX_NUM_ATTACKS = 3;
+
+    public PieceEvilMinion(char symbol, String teamColor, int numRecruits, int numAttacks, int numTimesSpawned, boolean hidden, boolean original) {
+        super(symbol, teamColor, numRecruits, numTimesSpawned, hidden, original);
+        this.numAttacks = numAttacks;
+        updateHungry();
+    }
+    public PieceEvilMinion() {
+        this('E', "NON", 0, 0, 0, false, true);
+    }
+
+    public boolean canAttack() {
+        return hungry;
+    }
+    public int getNumAttacks() {
+        return numAttacks;
+    }
+    public void setNumAttacks(int numAttacks) {
+        this.numAttacks = numAttacks;
+    }
+
+    @Override
+    public boolean validAttackPath(int rower, int columner, int rowee, int columnee) {
+        return true;
+    }
+
+    public void updateHungry() {
+        this.hungry = this.numAttacks < MAX_NUM_ATTACKS;
+    }
+
+    public void speak() {
+        System.out.println("Roar!");
+    }
+
+    public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        // You will implement this method in a later step
+        // each Piece will have a different valid path
+        return true;
+    }
+
+    public PieceEvilMinion spawn() {
+        this.numTimesSpawned++;
+        return new PieceEvilMinion(Character.toLowerCase(this.symbol), this.teamColor, 1, 0, 0, false, false);
+    }
+}
