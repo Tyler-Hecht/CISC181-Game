@@ -33,8 +33,17 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter {
         updateFly();
     }
 
+    public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
+    public boolean validAttackPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
+    public boolean validRecruitPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
     @Override
-    public boolean validAttackPath(int rower, int columner, int rowee, int columnee) {
+    public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return true;
     }
 
@@ -42,10 +51,6 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter {
         this.numRecruits = numRecruits;
     }
 
-    @Override
-    public boolean validRecruitPath(int rower, int columner, int rowee, int columnee) {
-        return true;
-    }
 
     private void updateFly()    {
         if (this.numAttacks < MAX_NUM_ATTACKS){
@@ -63,15 +68,7 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter {
         PieceBlueHen copyHen = new PieceBlueHen(Character.toLowerCase(this.symbol), this.teamColor,this.numAttacks,this.numRecruits, false,false);
         return copyHen;
     }
-    public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
-        return true;
-    }
     public boolean canSpawn(){
-        return true;
-    }
-    public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return true;
     }
 }

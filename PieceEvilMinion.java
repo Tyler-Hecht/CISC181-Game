@@ -23,8 +23,8 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter 
     }
 
     @Override
-    public boolean validAttackPath(int rower, int columner, int rowee, int columnee) {
-        return true;
+    public boolean validAttackPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return super.validMovePath(fromSquareRow, fromSquareCol, toSquareRow, toSquareCol);
     }
 
     public void updateHungry() {
@@ -34,18 +34,21 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter 
     public void speak() {
         System.out.println("Roar!");
     }
-
+    @Override
     public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
-        return true;
+        return super.validMovePath(fromSquareRow, fromSquareCol, toSquareRow, toSquareCol);
+    }
+    @Override
+    public boolean validRecruitPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return super.validMovePath(fromSquareRow, fromSquareCol, toSquareRow, toSquareCol);
     }
 
     public PieceEvilMinion spawn() {
         this.numTimesSpawned++;
         return new PieceEvilMinion(Character.toLowerCase(this.symbol), this.teamColor, 1, 0, 0, false, false);
     }
+    @Override
     public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
-        return true;
+        return super.validMovePath(fromSquareRow, fromSquareCol, toSquareRow, toSquareCol);
     }
 }
