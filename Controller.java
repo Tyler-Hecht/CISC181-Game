@@ -1,9 +1,24 @@
+/**
+ *  Description: This is the Controller class that allows you to
+ *  interact with the game and play the game
+ *   @author Tyler Hecht, Eli Brignac
+ *    @version 1.0
+ *     Email : thecht@udel.edu, ebrignac@udel.edu
+ *      Class : CISC 181-080
+ *       Lab : CISC 181-080
+ *
+ */
+
 import java.util.ArrayList;
 
 public class Controller {
     private GameS22 game;
     private TextView textView;
 
+    /**
+     * This method sets up a game by giving both teams pieces that are randomly set up on the board.
+     * @return A Game to be played
+     */
     public GameS22 setUpGameModel(){
         // Create 4 pieces for team A
         // Load the pieces in an ArrayList
@@ -35,12 +50,21 @@ public class Controller {
         return new GameS22(8, 8,teamA, teamB);
     }
 
+    //Constructor
     public Controller() {
         this.game = this.setUpGameModel();
         this.textView = new TextView();
         this.textView.updateView(this.game);
     }
 
+    /**
+     * This method causes an action to occur.
+     * @param rowFrom This is the row of the piece that will carry out the action
+     * @param columnFrom This is the column of the piece that will carry out the action
+     * @param rowTo This is the row the action will take place on
+     * @param columnTo This is the column the action will take place on
+     * @param actionType This is the type of action that will take place
+     */
     public void carryOutAction(int rowFrom, int columnFrom, int rowTo, int columnTo, char actionType) {
         Action action;
         if (actionType == 'M') {
@@ -57,6 +81,10 @@ public class Controller {
         action.performAction();
     }
 
+    /**
+     * This method runs and plays the game
+     * Have fun playing!
+     */
     public void playGame() {
         boolean ended = false;
         while (!ended) {
@@ -72,6 +100,7 @@ public class Controller {
         this.textView.printEndOfGameMessage(game);
     }
 
+    //Main method
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.playGame();

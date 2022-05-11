@@ -1,6 +1,26 @@
+/**
+ *  Description: These are the rules of the game and checks if everything makes sense.
+ *   @author Tyler Hecht, Eli Brignac
+ *    @version 1.0
+ *     Email : thecht@udel.edu, ebrignac@udel.edu
+ *      Class : CISC 181-080
+ *       Lab : CISC 181-080
+ *
+ */
+
 import java.util.ArrayList;
 
 public class Rules {
+    /**
+     * This checks if the action being called is valid
+     * @param game The Game that is being played
+     * @param rowFrom The row that the piece doing the action is on
+     * @param columnFrom The column that the piece doing the action is on
+     * @param rowTo The row the piece doing the action is doing the action on
+     * @param columnTo The column the piece doing the action is doing the action on
+     * @param actionType The type of action being done by this piece
+     * @return whether or not the piece can execute this action
+     */
     public static boolean checkValidAction(GameS22 game, int rowFrom, int columnFrom, int rowTo, int columnTo, char actionType) {
         //square is in bounds
         if (!(game.getGameBoard().inBounds(rowFrom, columnFrom) && game.getGameBoard().inBounds(rowTo, columnTo))) {

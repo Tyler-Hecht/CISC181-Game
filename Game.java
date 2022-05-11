@@ -1,3 +1,13 @@
+/**
+ *  Description: This is an abstract superclass of pieces of a game
+ *  @author Tyler Hecht, Eli Brignac
+ *  @version 1.0
+ *  Email : thecht@udel.edu, ebrignac@udel.edu
+ *  Class : CISC 181-080
+ *  Lab : CISC 181-080
+ *
+ */
+
 import java.util.Collections;
 
 public abstract class Game {
@@ -6,6 +16,11 @@ public abstract class Game {
     protected Team team2;
     protected String turn;
 
+    /**
+     * This method initializes a game board.
+     * @param numRows the amount of rows you want the game board to have
+     * @param numColumns the amount of columns you want the game board to have
+     */
     private void initializeGameBoard(int numRows, int numColumns) {
         this.board = new GameBoard(numRows, numColumns);
         for (Piece piece : team1.getTeamPieces()) {
@@ -15,7 +30,7 @@ public abstract class Game {
             board.findRandomEmptySpace().setPiece(piece);
         }
     }
-
+    //Constructor
     public Game(int numRows, int numColumns, Team team1, Team team2) {
         this.turn = team1.getTeamColor();
         this.team1 = team1;
@@ -23,6 +38,7 @@ public abstract class Game {
         initializeGameBoard(numRows, numColumns);
     }
 
+    //Getters
     public GameBoard getGameBoard() {
         return board;
     }
@@ -51,6 +67,9 @@ public abstract class Game {
         return board.getSquares();
     }
 
+    /**
+     * This function changes the turn of the players.
+     */
     public void changeTurn() {
         if (turn == team1.getTeamColor()) {
             this.turn = team2.getTeamColor();
@@ -59,6 +78,9 @@ public abstract class Game {
         }
     }
 
+    /**
+     * @return A string of the game board
+     */
     @Override
     public String toString() {
         StringBuilder retString = new StringBuilder();
@@ -75,8 +97,19 @@ public abstract class Game {
 
     }
 
+    /**
+     * @return checks if the team is a winner or not
+     */
     abstract boolean isAWinner();
+
+    /**this is a getter for the Winning Team
+     * @return
+     */
     abstract Team getWinner();
+
+    /**
+     * @return This returns if the game has ended
+     */
     abstract boolean isGameEnded();
 
 }

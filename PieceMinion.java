@@ -22,7 +22,7 @@ public class PieceMinion extends Piece implements Recruiter {
     }
 
     public void setNumRecruits(int numRecruits) {
-       this.numRecruits = numRecruits;
+        this.numRecruits = numRecruits;
     }
 
     @Override
