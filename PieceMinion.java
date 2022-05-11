@@ -46,5 +46,8 @@ public class PieceMinion extends Piece implements Recruiter {
     public boolean canSpawn(){
         return original && numTimesSpawned < MAX_NUM_SPAWNED;
     }
+    public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
 
 }

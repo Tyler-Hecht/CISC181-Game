@@ -71,4 +71,7 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter {
     public boolean canSpawn(){
         return true;
     }
+    public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
 }

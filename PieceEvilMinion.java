@@ -45,4 +45,7 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter 
         this.numTimesSpawned++;
         return new PieceEvilMinion(Character.toLowerCase(this.symbol), this.teamColor, 1, 0, 0, false, false);
     }
+    public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return true;
+    }
 }
