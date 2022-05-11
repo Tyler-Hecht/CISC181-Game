@@ -31,7 +31,6 @@ public class PieceBuzz extends Piece implements Attacker {
      this.numAttacks = numAttacks;
     }
 
-    @Override
     public boolean validAttackPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return (fromSquareCol == toSquareCol) || (fromSquareRow == toSquareRow && Math.abs(fromSquareCol - toSquareCol) <= 2);
     }
@@ -51,6 +50,7 @@ public class PieceBuzz extends Piece implements Attacker {
     public boolean canSpawn(){
         return false;
     }
+    @Override
     public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return true;
     }
