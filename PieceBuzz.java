@@ -28,7 +28,7 @@ public class PieceBuzz extends Piece implements Attacker {
         this.workingLaser = workingLaser;
     }
     public void setNumAttacks(int numAttacks)  {
-        this.numAttacks = numAttacks;
+     this.numAttacks = numAttacks;
     }
 
     @Override
