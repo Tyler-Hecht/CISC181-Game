@@ -44,7 +44,7 @@ public class GameBoard {
         BoardSquare square = null;
         while (!found) {
             int row = (int) (Math.random() * numRows);
-            int column = (int) (Math.random() * numRows);
+            int column = (int) (Math.random() * numColumns);
             square = squares[row][column];
             found = square.isEmpty();
         }
@@ -55,12 +55,13 @@ public class GameBoard {
         BoardSquare square = null;
         while (!found) {
             int row = (int) (Math.random() * numRows);
-            int column = (int) (Math.random() * numRows);
+            int column = (int) (Math.random() * numColumns);
             square = squares[row][column];
             found = square.isEmpty() && !(square.isSlimed());
         }
         return square;
     }
+
 
     @Override
     public String toString(){

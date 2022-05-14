@@ -4,6 +4,7 @@ public class BoardSquare {
     private String color;
     private boolean slimed;
     private int plySinceSlimed;
+    private boolean bombed;
 
     public BoardSquare(String color) {
         this.color = color;
@@ -65,4 +66,7 @@ public class BoardSquare {
             this.slimed = false;
         }
     }
+
+    public boolean isBombed(){return this.bombed;}
+
 }
