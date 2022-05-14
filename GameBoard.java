@@ -88,26 +88,32 @@ public class GameBoard {
     }
 
     public boolean isNearestCorner(int fromRow, int fromColumn, int toRow, int toColumn){
-        int[][] allCorners = {{0, 0}, {0, numColumns - 1}, {numRows - 1, 0}, {numRows - 1, numColumns - 1}};
+        int[][] allCorners = {{0, 0}, {0, numColumns -1 }, {numRows - 1, 0}, {numRows - 1, numColumns - 1 }};
 
         //Finds the corner that is closest.
-        double minDistance = 0;
+        double minDistance = distance(0,0,numRows,numColumns);
         for(int[] corner : allCorners) {
             double newDist = distance(fromRow, fromColumn, corner[0], corner[1]);
-            if (minDistance > newDist) {
-                minDistance = newDist;
+            if (minDistance > newDist && newDist != 0) {
+                if (squares[corner[0]][corner[1]].getPiece() == null){
+                    minDistance = newDist;
+                }
             }
         }
+        System.out.println(minDistance);
         //Checks if the toRow and toColumn is equal to the corner with the min distance.
         for(int[] corner : allCorners){
+            System.out.println("Row, Corner" + corner[0] + ", " + corner[1]);
             if(corner[0] == toRow && corner[1] == toColumn){
+
                 if(Math.abs(minDistance - distance(fromRow, fromColumn, corner[0], corner[1])) < .0001){
+
                     return true;
                 }
             }
         }
         return false;
-        
+
     }
 
 }
