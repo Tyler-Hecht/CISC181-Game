@@ -26,6 +26,10 @@ public class Rules {
         if (!(game.getGameBoard().inBounds(rowFrom, columnFrom) && game.getGameBoard().inBounds(rowTo, columnTo))) {
             return false;
         }
+        //same square
+        if (rowFrom == rowTo && columnFrom == columnTo) {
+            return false;
+        }
         BoardSquare fromSquare = game.getGameBoard().getSquares()[rowFrom][columnFrom];
         BoardSquare toSquare = game.getGameBoard().getSquares()[rowTo][columnTo];
         if (fromSquare.isEmpty()) {
