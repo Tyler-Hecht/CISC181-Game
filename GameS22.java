@@ -1,6 +1,6 @@
 /**
- *  Description: This is an extention of the Game object and it represents
- *  the gmae that we are making in class as a group.
+ *  Description: This is an extension of the Game object, and it represents
+ *  the game that we are making in class as a group.
  *   @author Tyler Hecht, Eli Brignac
  *    @version 1.0
  *     Email : thecht@udel.edu, ebrignac@udel.edu
@@ -19,15 +19,15 @@ public class GameS22 extends Game {
      * @return If the game has ended
      */
     public boolean isGameEnded() {
-        return team1.getTeamPieces().size() == 0 || team2.getTeamPieces().size() == 0;
+        return !team1.hasKingSlime() || !team2.hasKingSlime();
     }
 
     /**
      * This method returns if there was a winner
-     * @return If the person is a winner or not
+     * @return If there is a winner or not
      */
     public boolean isAWinner() {
-        return this.isGameEnded() && (team1.getTeamPieces().size() > 0 || team2.getTeamPieces().size() > 0);
+        return this.isGameEnded() && (team1.hasKingSlime() || team2.hasKingSlime());
     }
 
     /**Returns the winner of the game
@@ -35,10 +35,10 @@ public class GameS22 extends Game {
      */
     public Team getWinner() {
         if (isAWinner()) {
-            if (team1.getTeamPieces().size() > 0) {
-                return team1;
-            } else {
+            if (team1.hasKingSlime()) {
                 return team2;
+            } else {
+                return team1;
             }
         } else {
             return null;

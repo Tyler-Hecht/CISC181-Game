@@ -33,4 +33,14 @@ public class Team {
         return "Team " + teamColor + " pieces:\n" + pieceStrings;
     }
 
+    public boolean hasKingSlime() {
+        boolean found = false;
+        for (Piece piece : this.pieces) {
+            if (piece instanceof PieceKingSlime) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
 }
