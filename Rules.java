@@ -59,8 +59,11 @@ public class Rules {
                 return false;
             }
         } else if (actionType == 'R') {
-            if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E') {
+            if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E' || piece.getSymbol() == 'S') {
                 if (!(toSquare.isEmpty())) {
+                    if (piece.getSymbol() == 'S' && !(toSquare.getPiece() instanceof PieceBlueSlime)) {
+                        return false;
+                    }
                     return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor()));
                 } else {
                     return false;
@@ -71,9 +74,9 @@ public class Rules {
         } else if (actionType == 'A') {
             if (!(toSquare.isEmpty())) {
                 if (piece.getSymbol() == 'B') {
-                    return toSquare.getPiece().getTeamColor().equals(piece.getTeamColor()) && ((PieceBuzz) piece).canAttack();
-                } else if (piece.getSymbol() == 'H') {
-                    return toSquare.getPiece().getTeamColor().equals(piece.getTeamColor());
+                    return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor())) && ((PieceBuzz) piece).canAttack();
+                } else if (piece.getSymbol() == 'H' || piece.getSymbol() == 'S') {
+                    return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor()));
                 } else if (piece.getSymbol() == 'E') {
                     if (!toSquare.getPiece().getTeamColor().equals(fromSquare.getPiece().getTeamColor())) {
                         return ((PieceEvilMinion) piece).canAttack();
