@@ -40,14 +40,16 @@ public class Rules {
         if (!piece.getTeamColor().equals(game.getCurrentTeam().getTeamColor())) {
             return false;
         }
-        //valid move path
-        if (!(piece.validMovePath(rowFrom, columnFrom, rowTo, columnTo))) {
-            return false;
-        }
         // actual stuff
         if (actionType == 'M') {
+            if (!(piece.validMovePath(rowFrom, columnFrom, rowTo, columnTo))) {
+                return false;
+            }
             return toSquare.isEmpty();
         } else if (actionType == 'S') {
+            if (!(piece.validSpawnPath(rowFrom, columnFrom, rowTo, columnTo))) {
+                return false;
+            }
             if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E') {
                 if(piece.getSymbol() == 'M'){
                     if(!(game.getGameBoard().isNearestCorner(rowFrom, columnFrom, rowTo, columnTo))){
@@ -59,6 +61,9 @@ public class Rules {
                 return false;
             }
         } else if (actionType == 'R') {
+            if (!(piece.validRecruitPath(rowFrom, columnFrom, rowTo, columnTo))) {
+                return false;
+            }
             if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E' || piece.getSymbol() == 'S') {
                 if (!(toSquare.isEmpty())) {
                     if (piece.getSymbol() == 'S' && !(toSquare.getPiece() instanceof PieceBlueSlime)) {
@@ -72,6 +77,9 @@ public class Rules {
                 return false;
             }
         } else if (actionType == 'A') {
+            if (!(piece.validAttackPath(rowFrom, columnFrom, rowTo, columnTo))) {
+                return false;
+            }
             if (!(toSquare.isEmpty())) {
                 if (piece.getSymbol() == 'B') {
                     return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor())) && ((PieceBuzz) piece).canAttack();

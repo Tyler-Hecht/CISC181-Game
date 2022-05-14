@@ -35,6 +35,7 @@ public class PieceBlueSlime extends Piece implements Attacker, Recruiter {
         //knight moves are always a distance of sqrt5 away
         return Math.abs(Math.sqrt(Math.pow(fromSquareRow-toSquareRow,2) + Math.pow(fromSquareCol-toSquareCol,2)) - Math.sqrt(5)) <= 0.01;
     }
+    public boolean validSpawnPath(int rowFrom, int columnFrom, int rowTo, int columnTo) {return false;}
 
     public void speak() {
         System.out.println("boing");

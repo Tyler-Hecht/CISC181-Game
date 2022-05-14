@@ -45,4 +45,8 @@ abstract class Piece {
     public abstract void speak();
     public abstract boolean canSpawn();
     public abstract Piece spawn();
+
+    abstract boolean validSpawnPath(int rowFrom, int columnFrom, int rowTo, int columnTo);
+    abstract boolean validRecruitPath(int rowFrom, int columnFrom, int rowTo, int columnTo);
+    abstract boolean validAttackPath(int rowFrom, int columnFrom, int rowTo, int columnTo);
 }

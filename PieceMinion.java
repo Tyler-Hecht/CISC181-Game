@@ -50,4 +50,6 @@ public class PieceMinion extends Piece implements Recruiter {
         return true;
     }
 
+    public boolean validAttackPath(int rowFrom, int columnFrom, int rowTo, int columnTo) {return false;}
+
 }

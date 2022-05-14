@@ -57,5 +57,6 @@ public class PieceBuzz extends Piece implements Attacker {
     public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return false;
     }
+    public boolean validRecruitPath(int rowFrom, int columnFrom, int rowTo, int columnTo) {return false;}
 
 }
