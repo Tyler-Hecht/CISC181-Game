@@ -77,7 +77,7 @@ public class GameBoard {
     }
 
     public boolean isNearestCorner(int fromRow, int fromColumn, int toRow, int toColumn){
-        int[][] allCorners = {{1, 1}, {1, numColumns}, {numRows, 1}, {numRows, numColumns}};
+        int[][] allCorners = {{0, 0}, {0, numColumns - 1}, {numRows - 1, 0}, {numRows - 1, numColumns - 1}};
 
         //Finds the corner that is closest.
         double minDistance = 0;
