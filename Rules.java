@@ -45,6 +45,11 @@ public class Rules {
             return toSquare.isEmpty();
         } else if (actionType == 'S') {
             if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E') {
+                if(piece.getSymbol() == 'M'){
+                    if(!(game.getGameBoard().isNearestCorner(rowFrom, columnFrom, rowTo, columnTo))){
+                        return false;
+                    }
+                }
                 return toSquare.isEmpty() && piece.canSpawn();
             } else {
                 return false;

@@ -70,4 +70,37 @@ public class GameBoard {
         return boardString.toString();
     }
 
+    public double distance(int fromRow, int fromColumn, int toRow, int toColumn){
+        double xsquared = Math.pow(fromRow - toRow, 2);
+        double ysquared = Math.pow(fromColumn - toColumn, 2);
+        return (Math.pow(xsquared + ysquared, .5));
+    }
+
+    public boolean isNearestCorner(int fromRow, int fromColumn, int toRow, int toColumn){
+        int[][] allCorners = {{1, 1}, {1, numColumns}, {numRows, 1}, {numRows, numColumns}};
+
+        //Finds the corner that is closest.
+        double minDistance = 0;
+        for(int[] corner : allCorners) {
+            double newDist = distance(fromRow, fromColumn, corner[0], corner[1]);
+            if (minDistance > newDist) {
+                minDistance = newDist;
+            }
+        }
+        //Checks if the toRow and toColumn is equal to the corner with the min distance.
+        for(int[] corner : allCorners){
+            if(corner[0] == toRow && corner[1] == toColumn){
+                if(Math.abs(minDistance - distance(fromRow, fromColumn, corner[0], corner[1])) < .0001){
+                    return true;
+                }
+            }
+        }
+        return false;
+
+
+
+
+        
+    }
+
 }

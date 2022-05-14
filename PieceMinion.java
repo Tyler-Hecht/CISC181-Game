@@ -26,8 +26,8 @@ public class PieceMinion extends Piece implements Recruiter {
     }
 
     @Override
-    public boolean validRecruitPath(int rower, int columner, int rowee, int columnee) {
-        return true;
+    public boolean validRecruitPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        return (fromSquareCol == toSquareCol) || ((fromSquareRow == toSquareRow) && Math.abs(fromSquareRow - toSquareRow) <= 2);
     }
 
     public void speak(){
@@ -38,15 +38,15 @@ public class PieceMinion extends Piece implements Recruiter {
         return new PieceMinion(Character.toLowerCase(this.symbol), this.teamColor,1, 0, false, false);
     }
 
+    @Override
     public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
-        return true;
+        return (fromSquareCol == toSquareCol) || ((fromSquareRow == toSquareRow) && Math.abs(fromSquareRow - toSquareRow) <= 2);
     }
     public boolean canSpawn(){
         return original && numTimesSpawned < MAX_NUM_SPAWNED;
     }
     public boolean validSpawnPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+
         return true;
     }
 
