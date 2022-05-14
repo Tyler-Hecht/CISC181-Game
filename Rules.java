@@ -45,6 +45,9 @@ public class Rules {
             if (!(piece.validMovePath(rowFrom, columnFrom, rowTo, columnTo))) {
                 return false;
             }
+            if (!(piece instanceof PieceBlueSlime) && toSquare.isSlimed()) {
+                return false;
+            }
             return toSquare.isEmpty();
         } else if (actionType == 'S') {
             if (!(piece.validSpawnPath(rowFrom, columnFrom, rowTo, columnTo))) {
@@ -56,7 +59,7 @@ public class Rules {
                         return false;
                     }
                 }
-                return toSquare.isEmpty() && piece.canSpawn();
+                return toSquare.isEmpty() && piece.canSpawn() && !(toSquare.isSlimed());
             } else {
                 return false;
             }
@@ -67,6 +70,8 @@ public class Rules {
             if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E' || piece.getSymbol() == 'S') {
                 if (!(toSquare.isEmpty())) {
                     if (piece.getSymbol() == 'S' && !(toSquare.getPiece() instanceof PieceBlueSlime)) {
+                        return false;
+                    } else if (toSquare.isSlimed() && !((toSquare.getPiece()) instanceof PieceBlueSlime)) {
                         return false;
                     }
                     return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor()));
@@ -98,7 +103,6 @@ public class Rules {
                 return false;
             }
         } else if (actionType == 'Q') {
-            //slime square
             return true;
         } else {
             return false;

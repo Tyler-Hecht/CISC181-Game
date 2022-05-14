@@ -75,10 +75,17 @@ public class Controller {
             action = new ActionRecruit(this.game, rowFrom, columnFrom, rowTo, columnTo);
         } else if (actionType == 'A') {
             action = new ActionAttack(this.game, rowFrom, columnFrom, rowTo, columnTo);
+        } else if (actionType == 'Q') {
+            action = new ActionSlime(this.game, rowFrom, columnFrom, rowTo, columnTo);
         } else {
             return;
         }
         action.performAction();
+        for (BoardSquare[] squares : game.getGameBoard().getSquares()) {
+            for (BoardSquare square : squares) {
+                square.updatePlySinceSlimed();
+            }
+        }
     }
 
     /**
