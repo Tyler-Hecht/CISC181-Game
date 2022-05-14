@@ -6,6 +6,9 @@ public class PieceBlueSlime extends Piece implements Attacker, Recruiter {
         super(symbol, teamColor, hidden, original);
         this.numAttacks = numAttacks;
     }
+    public PieceBlueSlime(){
+        this('S',"- -", 0, false,true);
+    }
 
     public int getNumRecruits() {return numRecruits;}
     public int getNumAttacks() {
