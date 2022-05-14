@@ -26,6 +26,9 @@ public class ActionAttack extends Action {
         Piece attackedPiece = toSquare.getPiece();
         fromSquare.getPiece().speak();
         toSquare.removePiece();
+        if (attackedPiece instanceof PieceBuzz) {
+            ((PieceBuzz) attackedPiece).updateNumTimesBeenAttacked();
+        }
         //if the piece isn't evil minion, or if it is, isn't attacking its own piece
         if (!(piece instanceof PieceEvilMinion) || !(attackedPiece.getTeamColor().equals(piece.getTeamColor()))) {
             this.game.getOpponentTeam().removePieceFromTeam(attackedPiece);
