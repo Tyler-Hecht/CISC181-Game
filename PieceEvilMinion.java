@@ -9,7 +9,7 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter 
         updateHungry();
     }
     public PieceEvilMinion() {
-        this('E', "NON", 0, 0, 0, false, true);
+        this('E', "- -", 0, 0, 0, false, true);
     }
 
     public boolean canAttack() {

@@ -33,6 +33,9 @@ public class PieceBlueSlime extends Piece implements Attacker, Recruiter {
     }
     public boolean validRecruitPath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         //knight moves are always a distance of sqrt5 away
+        if (!this.original) {
+            return false;
+        }
         return Math.abs(Math.sqrt(Math.pow(fromSquareRow-toSquareRow,2) + Math.pow(fromSquareCol-toSquareCol,2)) - Math.sqrt(5)) <= 0.01;
     }
     public boolean validSpawnPath(int rowFrom, int columnFrom, int rowTo, int columnTo) {return false;}

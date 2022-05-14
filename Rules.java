@@ -97,6 +97,9 @@ public class Rules {
             } else {
                 return false;
             }
+        } else if (actionType == 'Q') {
+            //slime square
+            return true;
         } else {
             return false;
         }
