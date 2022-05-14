@@ -7,7 +7,7 @@ public class ActionSlime extends Action {
 
     @Override
     public void performAction() {
-        BoardSquare toSquare = this.game.getGameBoard().getSquares()[rowTo][columnTo];
+        BoardSquare toSquare = this.game.getGameBoard().findRandomEmptyUnslimedSpace();
         toSquare.setSlimed(true);
     }
 }

@@ -35,7 +35,11 @@ public class BoardSquare {
     @Override
     public String toString() {
         if (piece == null) {
-            return "-------";
+            if (this.slimed) {
+                return "$$$$$$$";
+            } else {
+                return "-------";
+            }
         } else if (this.slimed) {
             return "$" + piece.toString() + "$";
         } else {

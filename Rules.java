@@ -22,6 +22,10 @@ public class Rules {
      * @return whether or not the piece can execute this action
      */
     public static boolean checkValidAction(GameS22 game, int rowFrom, int columnFrom, int rowTo, int columnTo, char actionType) {
+        Piece piece = game.getGameBoard().getSquares()[rowFrom][columnFrom].getPiece();
+        if (actionType == 'Q') {
+            return (piece instanceof PieceKingSlime) && game.getGameBoard().findRandomEmptyUnslimedSpace() != null;
+        }
         //square is in bounds
         if (!(game.getGameBoard().inBounds(rowFrom, columnFrom) && game.getGameBoard().inBounds(rowTo, columnTo))) {
             return false;
@@ -36,11 +40,10 @@ public class Rules {
             return false;
         }
         //from square piece is on current team
-        Piece piece = game.getGameBoard().getSquares()[rowFrom][columnFrom].getPiece();
         if (!piece.getTeamColor().equals(game.getCurrentTeam().getTeamColor())) {
             return false;
         }
-        // actual stuff
+        //actual stuff
         if (actionType == 'M') {
             if (!(piece.validMovePath(rowFrom, columnFrom, rowTo, columnTo))) {
                 return false;
@@ -102,8 +105,6 @@ public class Rules {
             } else {
                 return false;
             }
-        } else if (actionType == 'Q') {
-            return true;
         } else {
             return false;
         }

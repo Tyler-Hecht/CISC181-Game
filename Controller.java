@@ -23,8 +23,8 @@ public class Controller {
         // Create 4 pieces for team A
         // Load the pieces in an ArrayList
         ArrayList<Piece> piecesTeamA = new ArrayList<>();
-        piecesTeamA.add(new PieceMinion('M',"Blu",
-                0,0,false,true));
+        piecesTeamA.add(new PieceKingSlime('K',"Blu",
+                0,false,true));
         piecesTeamA.add(new PieceBuzz('B',"Blu",2,1,
                 true,false,true));
         piecesTeamA.add(new PieceBlueHen('H',"Blu",3,

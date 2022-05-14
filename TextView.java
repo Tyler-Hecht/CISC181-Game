@@ -72,9 +72,9 @@ public class TextView {
         Boolean valid = false;
         char input = 'A';
         while (!valid) {
-            System.out.println("Enter one of the following: A, M, R, S");
+            System.out.println("Enter one of the following: A, M, R, S, Q");
             input = scnr.next().toUpperCase().charAt(0);
-            if (input == 'A' || input == 'M' || input == 'R' || input == 'S') {
+            if (input == 'A' || input == 'M' || input == 'R' || input == 'S' || input == 'Q') {
                 valid = true;
             } else {
                 scnr = new Scanner(System.in);
@@ -97,6 +97,11 @@ public class TextView {
         System.out.println("Input the from square column");
         scnr = new Scanner(System.in);
         this.columnFrom = getValidInt(0, game.getGameBoard().getNumColumns()-1, scnr);
+        if (this.actionType == 'Q') {
+            this.rowTo = -1;
+            this.columnTo = -1;
+            return;
+        }
         System.out.println("Input the to square row");
         scnr = new Scanner(System.in);
         this.rowTo = getValidInt(0, game.getGameBoard().getNumRows()-1, scnr);
