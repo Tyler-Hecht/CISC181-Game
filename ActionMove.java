@@ -27,6 +27,13 @@ public class ActionMove extends Action {
         piece.speak();
         fromSquare.removePiece();
         toSquare.setPiece(piece);
+        if (piece instanceof PieceBlueSlime) {
+            if (Math.random() <= 0.3) {
+                PieceBlueSlime newSlime = (PieceBlueSlime) piece.spawn();
+                fromSquare.setPiece(newSlime);
+                game.getCurrentTeam().addPieceToTeam(newSlime);
+            }
+        }
         this.game.changeTurn();
     }
 }
