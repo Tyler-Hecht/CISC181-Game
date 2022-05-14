@@ -24,7 +24,7 @@ public class Rules {
     public static boolean checkValidAction(GameS22 game, int rowFrom, int columnFrom, int rowTo, int columnTo, char actionType) {
         Piece piece = game.getGameBoard().getSquares()[rowFrom][columnFrom].getPiece();
         if (actionType == 'Q') {
-            return (piece instanceof PieceKingSlime) && game.getGameBoard().findRandomEmptyUnslimedSpace() != null;
+            return (piece instanceof PieceKingSlime);
         }
         //square is in bounds
         if (!(game.getGameBoard().inBounds(rowFrom, columnFrom) && game.getGameBoard().inBounds(rowTo, columnTo))) {

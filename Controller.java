@@ -27,7 +27,7 @@ public class Controller {
                 0,false,true));
         piecesTeamA.add(new PieceBuzz('B',"Blu",2,1,
                 true,false,true));
-        piecesTeamA.add(new PieceBlueHen('H',"Blu",3,
+        piecesTeamA.add(new PieceBlueHen('H',"Blu",1,
                 9,false,true));
         piecesTeamA.add(new PieceEvilMinion('E',"Blu",1,
                 1,4,false, true));
@@ -36,9 +36,9 @@ public class Controller {
         // Create 4 pieces for team B
         // Load the pieces in an ArrayList
         ArrayList<Piece> piecesTeamB = new ArrayList<>();
-        piecesTeamB.add(new PieceMinion('M',"Red",
-                0,0,false,true));
-        piecesTeamB.add(new PieceBlueHen('H',"Red",3,
+        piecesTeamB.add(new PieceKingSlime('K',"Red",
+                0,false,true));
+        piecesTeamB.add(new PieceBlueHen('H',"Red",1,
                 9,false,true));
         piecesTeamB.add(new PieceBuzz('B',"Red",2,1,
                 true,false,true));
@@ -81,6 +81,7 @@ public class Controller {
             return;
         }
         action.performAction();
+        game.changeTurn();
         for (BoardSquare[] squares : game.getGameBoard().getSquares()) {
             for (BoardSquare square : squares) {
                 square.updatePlySinceSlimed();

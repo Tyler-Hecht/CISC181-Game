@@ -44,7 +44,7 @@ public class TextView {
      * If the user inputs a number between the given bounds then this function returns that number
      */
     public static int getValidInt(int min, int max, Scanner scnr) {
-        Boolean valid = false;
+        boolean valid = false;
         int input = 0;
         while (!valid) {
             System.out.println("Enter an integer between " + min + " and " + max);
@@ -69,7 +69,7 @@ public class TextView {
      *   (if they inputed a M then it returns M)
      */
     public static char getUsersNextActionType(Scanner scnr) {
-        Boolean valid = false;
+        boolean valid = false;
         char input = 'A';
         while (!valid) {
             System.out.println("Enter one of the following: A, M, R, S, Q");
@@ -123,6 +123,6 @@ public class TextView {
      * @param game The game that is beign played
      */
     public void printEndOfGameMessage(Game game) {
-        System.out.println("Game over. " + game.getWinner() + " team won.");
+        System.out.println("Game over. " + game.getWinner().getTeamColor() + " team won.");
     }
 }

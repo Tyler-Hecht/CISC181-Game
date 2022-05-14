@@ -36,9 +36,9 @@ public class GameS22 extends Game {
     public Team getWinner() {
         if (isAWinner()) {
             if (team1.hasKingSlime()) {
-                return team2;
-            } else {
                 return team1;
+            } else {
+                return team2;
             }
         } else {
             return null;
