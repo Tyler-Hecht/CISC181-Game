@@ -13,4 +13,9 @@ public class PieceKingSlime extends PieceBlueSlime {
         //since the distance will only be 0, 1, sqrt2, sqrt3, etc, the +0.01 should handle rounding errors
         return Math.sqrt(Math.pow(fromSquareRow - toSquareRow, 2) + Math.pow(fromSquareCol - toSquareCol, 2)) <= Math.sqrt(2) + 0.01;
     }
+
+    @Override
+    public void speak() {
+        System.out.println("BOING");
+    }
 }

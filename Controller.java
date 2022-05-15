@@ -102,8 +102,13 @@ public class Controller {
                 valid = Rules.checkValidAction(this.game, this.textView.getRowFrom(), this.textView.getColumnFrom(), this.textView.getRowTo(), this.textView.getColumnTo(), this.textView.getActionType());
             }
             this.carryOutAction(this.textView.getRowFrom(), this.textView.getColumnFrom(), this.textView.getRowTo(), this.textView.getColumnTo(), this.textView.getActionType());
-            System.out.println(game.toString());
             ended = game.isGameEnded();
+            if(ended) {
+                game.changeTurn();
+                System.out.println(game.toString());
+                break;
+            }
+            System.out.println(game.toString());
         }
         this.textView.printEndOfGameMessage(game);
     }
