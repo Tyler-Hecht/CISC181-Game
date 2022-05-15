@@ -85,10 +85,10 @@ public class Controller {
         for (BoardSquare[] squares : game.getGameBoard().getSquares()) {
             for (BoardSquare square : squares) {
                 square.updatePlySinceSlimed();
-                if(game.getMoveCount() % 10 == 0){
-                    game.createBombSquare();
-                }
             }
+        }
+        if(game.getMoveCount() % 10 == 0){
+            game.createBombSquare();
         }
     }
 
