@@ -25,6 +25,8 @@ public class Controller {
         ArrayList<Piece> piecesTeamA = new ArrayList<>();
         piecesTeamA.add(new PieceKingSlime('K',"Blu",
                 0,false,true));
+        piecesTeamA.add(new PieceBlueSlime('S',"Blu",
+                        0,false,true));
         piecesTeamA.add(new PieceBuzz('B',"Blu",2,1,
                 true,false,true));
         piecesTeamA.add(new PieceBlueHen('H',"Blu",1,
@@ -44,6 +46,8 @@ public class Controller {
                 true,false,true));
         piecesTeamB.add(new PieceEvilMinion('E',"Red",1,
                 1,4,false, true));
+        piecesTeamB.add(new PieceMinion('M',"Red",1,
+                1,false, true));
         // Create a team object
         Team teamB = new Team("Red",piecesTeamB);
         // Create an instance of the game
