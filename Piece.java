@@ -1,8 +1,13 @@
-abstract class Piece {
+abstract class Piece implements Comparable<Piece>{
     protected char symbol;
     protected String teamColor;
     protected boolean hidden;
     protected boolean original;
+
+    @Override
+    public int compareTo(Piece piece) {
+        return ((Character) symbol).compareTo(piece.symbol);
+    }
 
     public Piece(char symbol, String teamColor, boolean hidden, boolean original) {
         this.symbol = symbol;

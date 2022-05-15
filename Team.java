@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Team {
     private String teamColor;
@@ -26,6 +27,7 @@ public class Team {
     }
 
     public String toString() {
+        Collections.sort(pieces);
         String pieceStrings = "";
         for(Piece piece : pieces) {
             pieceStrings += piece.toString() + "   ";
@@ -38,6 +40,7 @@ public class Team {
         for (Piece piece : this.pieces) {
             if (piece instanceof PieceKingSlime) {
                 found = true;
+                break;
             }
         }
         return found;
