@@ -15,6 +15,7 @@ public abstract class Game {
     protected Team team1;
     protected Team team2;
     protected String turn;
+    protected int moveCount;
 
     /**
      * This method initializes a game board.
@@ -66,6 +67,18 @@ public abstract class Game {
     public BoardSquare[][] getBoardSquares() {
         return board.getSquares();
     }
+
+    public int getMoveCount(){return this.moveCount;}
+    public void setMoveCount(int moveCount){this.moveCount = moveCount;}
+    public void updateMoveCount(){this.moveCount += 1;}
+
+    public void createBombSquare(){
+        BoardSquare emptySquare = board.findRandomEmptyUnbombedSpace();
+        emptySquare.setBombed(true);
+    }
+
+
+
 
     /**
      * This function changes the turn of the players.

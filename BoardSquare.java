@@ -68,5 +68,7 @@ public class BoardSquare {
     }
 
     public boolean isBombed(){return this.bombed;}
+    public void setBombed(boolean bombed){this.bombed = bombed;}
+
 
 }

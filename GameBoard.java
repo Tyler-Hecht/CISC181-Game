@@ -61,6 +61,18 @@ public class GameBoard {
         }
         return square;
     }
+    public BoardSquare findRandomEmptyUnbombedSpace() {
+        boolean found = false;
+        BoardSquare square = null;
+        while (!found) {
+            System.out.print("loop");
+            int row = (int) (Math.random() * numRows);
+            int column = (int) (Math.random() * numColumns);
+            square = squares[row][column];
+            found = square.isEmpty() && !(square.isBombed());
+        }
+        return square;
+    }
 
 
     @Override
