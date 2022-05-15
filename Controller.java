@@ -53,6 +53,7 @@ public class Controller {
     //Constructor
     public Controller() {
         this.game = this.setUpGameModel();
+        game.createBombSquare();
         this.textView = new TextView();
         this.textView.updateView(this.game);
     }
