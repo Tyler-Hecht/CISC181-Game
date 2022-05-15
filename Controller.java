@@ -81,10 +81,13 @@ public class Controller {
             return;
         }
         action.performAction();
-        game.changeTurn();
+        game.updateMoveCount();
         for (BoardSquare[] squares : game.getGameBoard().getSquares()) {
             for (BoardSquare square : squares) {
                 square.updatePlySinceSlimed();
+                if(game.getMoveCount() % 10 == 0){
+                    game.createBombSquare();
+                }
             }
         }
     }
