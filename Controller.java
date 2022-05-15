@@ -86,9 +86,21 @@ public class Controller {
         for (BoardSquare[] squares : game.getGameBoard().getSquares()) {
             for (BoardSquare square : squares) {
                 square.updatePlySinceSlimed();
+                if (square.isBombed() && !square.isEmpty()) {
+                    Piece bombedPiece = square.getPiece();
+                    if (game.getCurrentTeam().getTeamColor() == bombedPiece.getTeamColor()) {
+                        game.getCurrentTeam().removePieceFromTeam(bombedPiece);
+                    } else {
+                        game.getOpponentTeam().removePieceFromTeam(bombedPiece);
+                    }
+                    square.removePiece();
+                    square.setBombed(false);
+                    System.out.println("KABOOM!");
+
+                }
             }
         }
-        if(game.getMoveCount() % 10 == 0){
+        if(game.getMoveCount() % 10 == 0) {
             game.createBombSquare();
         }
     }

@@ -36,7 +36,7 @@ public class BoardSquare {
     @Override
     public String toString() {
         if (bombed) {
-            return "#######";
+            //return "#######";
         }
         if (piece == null) {
             if (this.slimed) {
