@@ -70,9 +70,9 @@ public class Rules {
             if (!(piece.validRecruitPath(rowFrom, columnFrom, rowTo, columnTo))) {
                 return false;
             }
-            if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E' || piece.getSymbol() == 'S') {
+            if (piece.getSymbol() == 'H' || piece.getSymbol() == 'M' || piece.getSymbol() == 'E' || piece.getSymbol() == 'S' || piece.getSymbol() == 'K') {
                 if (!(toSquare.isEmpty())) {
-                    if (piece.getSymbol() == 'S' && !(toSquare.getPiece() instanceof PieceBlueSlime)) {
+                    if ((piece.getSymbol() == 'S' || piece.getSymbol() == 'K') && !(toSquare.getPiece() instanceof PieceBlueSlime)) {
                         return false;
                     } else if (toSquare.isSlimed() && !((toSquare.getPiece()) instanceof PieceBlueSlime)) {
                         return false;
@@ -88,10 +88,13 @@ public class Rules {
             if (!(piece.validAttackPath(rowFrom, columnFrom, rowTo, columnTo))) {
                 return false;
             }
+            if (toSquare.isSlimed() && !(piece instanceof PieceBlueSlime)) {
+                return false;
+            }
             if (!(toSquare.isEmpty())) {
                 if (piece.getSymbol() == 'B') {
                     return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor())) && ((PieceBuzz) piece).canAttack();
-                } else if (piece.getSymbol() == 'H' || piece.getSymbol() == 'S') {
+                } else if (piece.getSymbol() == 'H' || piece.getSymbol() == 'S' || piece.getSymbol() == 'K') {
                     return !(toSquare.getPiece().getTeamColor().equals(piece.getTeamColor()));
                 } else if (piece.getSymbol() == 'E') {
                     if (!toSquare.getPiece().getTeamColor().equals(fromSquare.getPiece().getTeamColor())) {

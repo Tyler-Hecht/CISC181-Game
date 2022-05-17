@@ -44,5 +44,5 @@ public class PieceBlueSlime extends Piece implements Attacker, Recruiter {
         System.out.println("boing");
     }
     public boolean canSpawn() {return true;}
-    public Piece spawn() {return new PieceBlueSlime(Character.toLowerCase(this.symbol), this.teamColor,1, false, false);}
+    public Piece spawn() {return new PieceBlueSlime('s', this.teamColor,1, false, false);}
 }

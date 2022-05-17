@@ -27,8 +27,8 @@ public class ActionMove extends Action {
         piece.speak();
         fromSquare.removePiece();
         toSquare.setPiece(piece);
-        if (piece instanceof PieceBlueSlime) {
-            if (Math.random() <= 0.3) {
+        if (piece instanceof PieceBlueSlime && piece.isOriginal()) {
+            if (Math.random() <= 0.5) {
                 PieceBlueSlime newSlime = (PieceBlueSlime) piece.spawn();
                 fromSquare.setPiece(newSlime);
                 game.getCurrentTeam().addPieceToTeam(newSlime);

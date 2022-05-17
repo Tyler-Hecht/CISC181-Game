@@ -11,5 +11,6 @@ public class ActionSlime extends Action {
         BoardSquare toSquare = this.game.getGameBoard().findRandomEmptyUnslimedSpace();
         toSquare.setSlimed(true);
         fromSquare.getPiece().speak();
+        this.game.changeTurn();
     }
 }

@@ -6,7 +6,7 @@ abstract class Piece implements Comparable<Piece>{
 
     @Override
     public int compareTo(Piece piece) {
-        return ((Character) symbol).compareTo(piece.symbol);
+        return ((Character) symbol).compareTo((Character) piece.symbol);
     }
 
     public Piece(char symbol, String teamColor, boolean hidden, boolean original) {

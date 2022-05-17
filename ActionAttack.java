@@ -40,7 +40,6 @@ public class ActionAttack extends Action {
             this.game.getCurrentTeam().addPieceToTeam(newPiece);
             toSquare.setPiece(newPiece);
         }
-
         this.game.changeTurn();
     }
 }

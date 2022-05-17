@@ -124,7 +124,6 @@ public class Controller {
             this.carryOutAction(this.textView.getRowFrom(), this.textView.getColumnFrom(), this.textView.getRowTo(), this.textView.getColumnTo(), this.textView.getActionType());
             ended = game.isGameEnded();
             if(ended) {
-                game.changeTurn();
                 System.out.println(game.toString());
                 break;
             }
