@@ -41,5 +41,11 @@ public class ActionAttack extends Action {
             toSquare.setPiece(newPiece);
         }
         this.game.changeTurn();
+        if (piece instanceof PieceBlueHen) {
+            ((PieceBlueHen) piece).setNumAttacks(((PieceBlueHen) piece).getNumAttacks()+1);
+        }
+        if (piece instanceof PieceEvilMinion) {
+            ((PieceEvilMinion) piece).setNumAttacks(((PieceEvilMinion) piece).getNumAttacks()+1);
+        }
     }
 }

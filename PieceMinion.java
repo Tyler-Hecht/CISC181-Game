@@ -35,6 +35,7 @@ public class PieceMinion extends Piece implements Recruiter {
     }
 
     public PieceMinion spawn() {
+        this.numTimesSpawned++;
         return new PieceMinion(Character.toLowerCase(this.symbol), this.teamColor,1, 0, false, false);
     }
 
