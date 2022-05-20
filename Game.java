@@ -72,6 +72,10 @@ public abstract class Game {
     public void setMoveCount(int moveCount){this.moveCount = moveCount;}
     public void updateMoveCount(){this.moveCount += 1;}
 
+
+    /**
+     * This function creates a new bomb square
+     */
     public void createBombSquare(){
         BoardSquare emptySquare = board.findRandomEmptyUnbombedSpace();
         emptySquare.setBombed(true);

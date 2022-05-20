@@ -1,3 +1,12 @@
+/**
+ * Description: the class for each square on the board
+ * @author Tyler He
+ * @version 1.0
+ * Email : thecht@u
+ * Class : CISC 181
+ * Lab : CISC 181-0
+ *
+ */
 public class BoardSquare {
     private boolean empty;
     private Piece piece;
@@ -6,12 +15,14 @@ public class BoardSquare {
     private int plySinceSlimed;
     private boolean bombed;
 
+    //constructor
     public BoardSquare(String color) {
         this.color = color;
         this.empty = true;
         this.slimed = false;
     }
 
+    //Getters and setters
     public Piece getPiece() {
         return piece;
     }
@@ -26,6 +37,10 @@ public class BoardSquare {
         this.empty = false;
     }
 
+
+    /**This function removes the piece on the particular square its on
+     * @return the piece that is on this square
+     */
     public Piece removePiece() {
         Piece tmp = piece;
         this.piece = null;
@@ -33,11 +48,14 @@ public class BoardSquare {
         return tmp;
     }
 
+    /**
+     * @return A string of the piece this is called on.
+     * If the piece is null it returns -------
+     * otherwise it returns the toString method call of the piece this was called on
+     */
     @Override
     public String toString() {
-        if (bombed) {
-            //return "#######";
-        }
+
         if (piece == null) {
             if (this.slimed) {
                 return "$$$$$$$";
@@ -51,6 +69,7 @@ public class BoardSquare {
         }
     }
 
+    //Getter and setter
     public boolean isSlimed() {
         return slimed;
     }
@@ -60,6 +79,11 @@ public class BoardSquare {
             plySinceSlimed = 0;
         }
     }
+
+    /**
+     * Updates the slimed square to make sure it disapears in
+     * 10 ply moves
+     */
     public void updatePlySinceSlimed() {
         if (slimed) {
             this.plySinceSlimed++;
@@ -70,6 +94,7 @@ public class BoardSquare {
         }
     }
 
+    //getter and setter
     public boolean isBombed(){return this.bombed;}
     public void setBombed(boolean bombed){this.bombed = bombed;}
 
